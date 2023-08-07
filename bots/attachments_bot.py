@@ -93,14 +93,14 @@ class AttachmentsBot(ActivityHandler):
                prompt = [{"role": "user", "content": turn_context.activity.text}]
 
             ##log to ELK
-            try:
+            #try:
                 # msg = {"company":"kgis", "user_name": user_name, "user_msg": turn_context.activity.text}
                 # msg = json.dumps(msg)
                 # sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
                 # sock.connect((ip, elk_port))
                 # sock.send(msg.encode())
-            except:
-                pass
+            #except:
+             #   pass
 
             response = openai.ChatCompletion.create(engine="gpt-35-turbo", messages=prompt, max_tokens=1024, temperature=0.6)
 
