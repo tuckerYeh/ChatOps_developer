@@ -77,7 +77,7 @@ class AttachmentsBot(ActivityHandler):
             # #get msg from redis
             # try:
             #    previous_msg = r.get(from_property_id)
-            #    ai_previous_answer = r.get(from_property_id + "_answer")
+            #   i ai_previous_answer = r.get(from_property_id + "_answer")
             #except:
              #  pass
 
@@ -86,11 +86,11 @@ class AttachmentsBot(ActivityHandler):
             openai.api_version = "2023-03-15-preview"
             openai.api_key = CONFIG.APP_AZURE_OPENAIAPIKEY
 
-            if previous_msg and ai_previous_answer:
-               this_message = [{"role": "user", "content": previous_msg}, {"role": "assistant", "content": ai_previous_answer}, {"role": "user", "content": turn_context.activity.text}]
-               prompt = this_message
-            else:
-               prompt = [{"role": "user", "content": turn_context.activity.text}]
+            # if previous_msg and ai_previous_answer:
+            #    this_message = [{"role": "user", "content": previous_msg}, {"role": "assistant", "content": ai_previous_answer}, {"role": "user", "content": turn_context.activity.text}]
+            #    prompt = this_message
+            # else:
+            prompt = [{"role": "user", "content": turn_context.activity.text}]
 
             ##log to ELK
             #try:
@@ -106,11 +106,11 @@ class AttachmentsBot(ActivityHandler):
 
             reply_msg = response['choices'][0]['message']['content']#.replace('\n','')
             ## send to redis
-            try:
-               r.set(from_property_id, turn_context.activity.text)
-               r.set(from_property_id + "_answer", reply_msg)
-            except:
-               pass
+            # try:
+            #    r.set(from_property_id, turn_context.activity.text)
+            #    r.set(from_property_id + "_answer", reply_msg)
+            # except:
+            #    pass
 
             await turn_context.send_activity(reply_msg)
 
