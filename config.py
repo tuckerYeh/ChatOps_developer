@@ -11,4 +11,4 @@ class DefaultConfig:
     APP_ID = os.environ.get("MicrosoftAppId", "904e00ce-de5b-4d2c-9da9-523eed882806")
     APP_PASSWORD = os.environ.get("MicrosoftAppPassword", "5b73980e-9ec8-474d-b481-5190e63c1c34")
     #APP_OPENAIAPIKEY= os.environ.get("OpenAIAPIkey","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")
-    APP_AZURE_OPENAIAPIKEY= os.environ.get("OPENAI_API_KEY","9e833eb0535441a4906f43f1d8d09b89")
+    APP_AZURE_OPENAIAPIKEY= os.environ.get("OPENAI_API_KEY","ad54cec485524fa590fd5ba8428505f0")
