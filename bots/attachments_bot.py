@@ -58,17 +58,17 @@ class AttachmentsBot(ActivityHandler):
 
 #依據輸入行為執行動作
     async def on_message_activity(self, turn_context: TurnContext):
-        lcontext = turn_context.activity.text.split(" ")[0].lower()
-        lcontextai = turn_context.activity.text.lower()
-        FORMAT = '%(asctime)s %(levelname)s: %(message)s'
-        user_name = turn_context.activity.from_property.name
-        logName = 'My_Bot.log'
-        logging.basicConfig(level=logging.INFO, filename=logName, filemode='w', format=FORMAT)
-        ip = "10.129.12.6"
-        port = 50000
-        r = redis.Redis(host=ip, port=6379, decode_responses=True)
-        from_property_id = turn_context.activity.from_property.id
-        user_mode = from_property_id + "_mode"
+        #lcontext = turn_context.activity.text.split(" ")[0].lower()
+        #lcontextai = turn_context.activity.text.lower()
+        #FORMAT = '%(asctime)s %(levelname)s: %(message)s'
+        #user_name = turn_context.activity.from_property.name
+        #logName = 'My_Bot.log'
+        #logging.basicConfig(level=logging.INFO, filename=logName, filemode='w', format=FORMAT)
+        #ip = "10.129.12.6"
+        #port = 50000
+        #r = redis.Redis(host=ip, port=6379, decode_responses=True)
+        #from_property_id = turn_context.activity.from_property.id
+        #user_mode = from_property_id + "_mode"
 
         if lcontext == "hello":
            await turn_context.send_activity(f"您好！我是金控小幫手!")
