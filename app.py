@@ -18,8 +18,6 @@ from botbuilder.schema import Activity, ActivityTypes
 
 from bots import AttachmentsBot
 from config import DefaultConfig
-import aiohttp_cors
-
 
 CONFIG = DefaultConfig()
 
@@ -39,7 +37,7 @@ async def on_error(context: TurnContext, error: Exception):
 
     # Send a message to the user
 #    await context.send_activity("The bot encountered an error or bug.")
-    await context.send_activity("您好！我是金控小幫手．無法識別您的輸入，請重新輸入或輸入help查看選單")
+    await context.send_activity("您好！我是證劵小幫手．請重新輸入")
 #    await context.send_activity(
 #        "To continue to run this bot, please fix the bot source code."
 #    )
@@ -82,21 +80,7 @@ async def messages(req: Request) -> Response:
 
 
 APP = web.Application(middlewares=[aiohttp_error_middleware])
-APP.router.add_static('/images', path='static/images', name='images')
 APP.router.add_post("/api/messages", messages)
-
-'''
-cors = aiohttp_cors.setup(APP, defaults={
-    "*": aiohttp_cors.ResourceOptions(
-        allow_credentials=True,
-        expose_headers="*",
-        allow_headers="*",
-    )
-})
-
-for route in list(APP.router.routes()):
-    cors.add(route)
-'''
 
 if __name__ == "__main__":
     try:
