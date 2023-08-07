@@ -78,8 +78,8 @@ class AttachmentsBot(ActivityHandler):
             # try:
             #    previous_msg = r.get(from_property_id)
             #    ai_previous_answer = r.get(from_property_id + "_answer")
-            except:
-               pass
+            #except:
+             #  pass
 
             openai.api_type = "azure"
             openai.api_base = "https://tucker-ai.openai.azure.com/"
