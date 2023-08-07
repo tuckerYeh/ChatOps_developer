@@ -8,7 +8,7 @@ class DefaultConfig:
     """ Bot Configuration """
 
     PORT = 8000
-    APP_ID = os.environ.get("MicrosoftAppId", "90372b8c-c4b3-435f-80e9-270a48fc12da")
-    APP_PASSWORD = os.environ.get("MicrosoftAppPassword", "b0o8Q~Zyv5tC_BamL~VUXQqMmFNF9~BtSEtxNbtR")
+    APP_ID = os.environ.get("MicrosoftAppId", "904e00ce-de5b-4d2c-9da9-523eed882806")
+    APP_PASSWORD = os.environ.get("MicrosoftAppPassword", "93425324-8e4e-4dcf-be5c-32f316ca975e")
     #APP_OPENAIAPIKEY= os.environ.get("OpenAIAPIkey","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")
-    APP_AZURE_OPENAIAPIKEY= os.environ.get("OPENAI_API_KEY","ea75d3fa0090468bb1c00ae896e8c846")
+    APP_AZURE_OPENAIAPIKEY= os.environ.get("OPENAI_API_KEY","ad54cec485524fa590fd5ba8428505f0")
