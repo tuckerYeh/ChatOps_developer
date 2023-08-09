@@ -57,8 +57,8 @@ class AttachmentsBot(ActivityHandler):
         #logName = 'My_Bot.log'
         #logging.basicConfig(level=logging.INFO, filename=logName, filemode='w', format=FORMAT)
 
-        if lcontext == "hello":
-           await turn_context.send_activity(f"您好！我是證劵小幫手!")
+        if lcontext == "小白":
+           await turn_context.send_activity(f"是變態!")
 
 
         #Azure openAI 3.5 testing
