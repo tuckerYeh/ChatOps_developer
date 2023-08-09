@@ -37,7 +37,7 @@ async def on_error(context: TurnContext, error: Exception):
 
     # Send a message to the user
 #    await context.send_activity("The bot encountered an error or bug.")
-    await context.send_activity("您好！我是證劵小幫手．請重新輸入")
+    await context.send_activity("TuckerAI罷工中．請重新輸入")
 #    await context.send_activity(
 #        "To continue to run this bot, please fix the bot source code."
 #    )
