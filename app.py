@@ -20,6 +20,7 @@ from bots import AttachmentsBot
 from config import DefaultConfig
 
 CONFIG = DefaultConfig()
+(Press CTRL+C to quit)
 
 # Create adapter.
 # See https://aka.ms/about-bot-adapter to learn more about how bots work.

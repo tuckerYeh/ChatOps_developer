@@ -6,10 +6,10 @@ import urllib.parse
 import urllib.request
 import base64
 import json
-import redis
+#import redis
 import openai
 import requests
-import datetime
+import datetime 
 import time
 import logging
 import socket
@@ -131,12 +131,12 @@ class AttachmentsBot(ActivityHandler):
             if member.id != turn_context.activity.recipient.id:
                 await turn_context.send_activity(
                 #    f"Welcome to AttachmentsBot {member.name}. This bot will introduce "
-                    f"您好！我是證劵小幫手，一個企業版的生成式AI機器人。小幫手提供了ChatGPT的功能，可以協助您更有效地處理日常業務，提高工作效率。我們的界面非常簡單易用，只需輸入您的問題或要求，小幫手就會立即為您提供答案或解決方案。相信未來能成為您工作的好夥伴，持續為您提供所需的資訊和服務！"
+                    f"您好！我是TuckerAI提供了ChatGPT的功能只需輸入您的問題或要求就會立即為您提供答案或解決方案"
                 )
                 #await self._display_index(turn_context)
     #錯誤訊息
     async def _send_unrecognizable_message(self, turn_context: TurnContext):
-        await turn_context.send_activity(f"您好！我是證劵小幫手．請重新輸入")
+        await turn_context.send_activity(f"TuckerAI罷工中．請重新輸入")
         await self._display_index(turn_context)
 
 
