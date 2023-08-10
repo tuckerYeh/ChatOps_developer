@@ -131,7 +131,7 @@ class AttachmentsBot(ActivityHandler):
             if member.id != turn_context.activity.recipient.id:
                 await turn_context.send_activity(
                 #    f"Welcome to AttachmentsBot {member.name}. This bot will introduce "
-                    f"您好！我是TuckerAI提供了ChatGPT的功能只需輸入您的問題或要求就會立即為您提供答案或解決方案"
+                    f"您好！我是TuckerAI,提供了ChatGPT的功能,只需輸入您的問題或要求,就會立即為您提供答案或解決方案"
                 )
                 #await self._display_index(turn_context)
     #錯誤訊息
