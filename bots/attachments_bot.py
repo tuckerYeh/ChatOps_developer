@@ -6,7 +6,6 @@ import urllib.parse
 import urllib.request
 import base64
 import json
-#import redis
 import openai
 import requests
 import datetime 
@@ -52,71 +51,25 @@ class AttachmentsBot(ActivityHandler):
     async def on_message_activity(self, turn_context: TurnContext):
         lcontext = turn_context.activity.text.split(" ")[0].lower()
         lcontextai = turn_context.activity.text.lower()
-        FORMAT = '%(asctime)s %(levelname)s: %(message)s'
-        user_name = turn_context.activity.from_property.name
-        #logName = 'My_Bot.log'
-        #logging.basicConfig(level=logging.INFO, filename=logName, filemode='w', format=FORMAT)
 
         if lcontext == "hello":
            await turn_context.send_activity(f"您好！我是TuckerAI!")
-
-
-        #Azure openAI 3.5 testing
-        
+        #Azure openAI 3.5 testing    
         elif lcontextai[0:7] == "hi kgis":
             await turn_context.send_activity(f"證劵小幫手, 暫時無證劵的內部資料!")
-       
         else:
-            #ELK and redis address
-            # ip = "10.129.12.11"
-            # elk_port = 50000
-            # redis_port = 6379
-            # r = redis.Redis(host=ip, port=redis_port, decode_responses=True)
-
-            # logging.info("user name = " + user_name)
-
-            from_property_id = turn_context.activity.from_property.id
-            # logging.info("from_property_id = " + from_property_id)
-
-            # #get msg from redis
-            # try:
-            #    previous_msg = r.get(from_property_id)
-                 #ai_previous_answer = r.get(from_property_id + "_answer")
-            #except:
-             #  pass
 
             openai.api_type = "azure"
             openai.api_base = "https://tucker-ai.openai.azure.com/"
             openai.api_version = "2023-03-15-preview"
             openai.api_key = CONFIG.APP_AZURE_OPENAIAPIKEY
 
-
-             #if previous_msg and ai_previous_answer:
-                #this_message = [{"role": "user", "content": previous_msg}, {"role": "assistant", "content": ai_previous_answer}, {"role": "user", "content": turn_context.activity.text}]
-                #prompt = this_message
-             #else:
             prompt = [{"role": "user", "content": turn_context.activity.text}]
            
-
-            ##log to ELK
-            #try:
-                # msg = {"company":"kgis", "user_name": user_name, "user_msg": turn_context.activity.text}
-                # msg = json.dumps(msg)
-                # sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-                # sock.connect((ip, elk_port))
-                # sock.send(msg.encode())
-            #except:
-             #   pass
-
             response = openai.ChatCompletion.create(engine="tuckerai", messages=prompt, max_tokens=1024, temperature=0.6)
 
             reply_msg = response['choices'][0]['message']['content']#.replace('\n','')
-            ## send to redis
-            # try:
-            #    r.set(from_property_id, turn_context.activity.text)
-            #    r.set(from_property_id + "_answer", reply_msg)
-            # except:
-            #    pass
+
 
             await turn_context.send_activity(reply_msg)
 
