@@ -66,7 +66,7 @@ class AttachmentsBot(ActivityHandler):
 
             user_input = turn_context.activity.text + "使用繁體中文回答"
 
-            prompt = [{"role": "user", "content": tuser_input}]
+            prompt = [{"role": "user", "content": user_input}]
            
             response = openai.ChatCompletion.create(engine="tuckerai", messages=prompt, max_tokens=1024, temperature=0.6)
 
