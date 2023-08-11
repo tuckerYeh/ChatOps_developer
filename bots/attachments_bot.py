@@ -1,17 +1,4 @@
-# Author CDFH Joey Chan
-# If you have any questions, please contact Joey 
-
-import os
-import urllib.parse
-import urllib.request
-import base64
-import json
 import openai
-import requests
-import datetime 
-import time
-import logging
-import socket
 from botbuilder.core import ActivityHandler, MessageFactory, TurnContext, CardFactory
 from botbuilder.schema import (
     ChannelAccount,
