@@ -64,7 +64,9 @@ class AttachmentsBot(ActivityHandler):
             openai.api_version = "2023-03-15-preview"
             openai.api_key = CONFIG.APP_AZURE_OPENAIAPIKEY
 
-            prompt = [{"role": "user", "content": turn_context.activity.text}]
+            user_input = turn_context.activity.text + "使用繁體中文回答"
+
+            prompt = [{"role": "user", "content": tuser_input}]
            
             response = openai.ChatCompletion.create(engine="tuckerai", messages=prompt, max_tokens=1024, temperature=0.6)
 
