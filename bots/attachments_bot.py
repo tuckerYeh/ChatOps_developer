@@ -67,7 +67,7 @@ class AttachmentsBot(ActivityHandler):
             num_tokens = sum(len(encoding.encode(msg["content"])) + 4 for msg in conversation) + 2
 
         response = openai.ChatCompletion.create(
-            engine="tuckerai",
+            engine="tuckerai-gpt4",
             messages=conversation,
             temperature=0.7,
             max_tokens=max_response_tokens,

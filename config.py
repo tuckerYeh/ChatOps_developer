@@ -14,7 +14,7 @@ class DefaultConfig:
 
     #APP_OPENAIAPIKEY= os.environ.get("OpenAIAPIkey","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")
     APP_AZURE_OPENAIAPIBASE= os.environ.get("OPENAI_API_BASE","https://tucker-ai.openai.azure.com/")
-    APP_AZURE_OPENAIAPIKEY= os.environ.get("OPENAI_API_KEY","498e27ca0d0742b4b65f952e67714870") #GPT3.5 
-    #APP_AZURE_OPENAIAPIKEY= os.environ.get("OPENAI_API_KEY","ce7ef7b4a5974e34bfb8c2594bd03125") #GPT4
+    APP_AZURE_OPENAIAPIKEY= os.environ.get("OPENAI_API_KEY","498e27ca0d0742b4b65f952e67714870")
+
 
 
