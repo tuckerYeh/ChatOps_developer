@@ -39,8 +39,8 @@ class AttachmentsBot(ActivityHandler):
 
     async def on_message_activity(self, turn_context: TurnContext):
         openai.api_type = "azure"
-        openai.api_base = "https://tucker-ai.openai.azure.com/"
         openai.api_version = "2023-05-15"
+        openai.api_base = CONFIG.APP_AZURE_OPENAIAPIBASE
         openai.api_key = CONFIG.APP_AZURE_OPENAIAPIKEY
         system_message = {"role": "system", "content": "使用繁體中文，.\
                                         簡潔答覆，忽略禮貌用語，.\
