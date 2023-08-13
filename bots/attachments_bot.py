@@ -18,7 +18,7 @@ sys.path.append("..")
 from config import DefaultConfig
 
 
-#CONFIG = DefaultConfig()
+CONFIG = DefaultConfig()
 
 
 class ConversationData:
@@ -35,13 +35,13 @@ class AttachmentsBot(ActivityHandler):
     async def on_members_added_activity(self, members_added: [ChannelAccount], turn_context: TurnContext):
         for member in members_added:
             if member.id != turn_context.activity.recipient.id:
-                await turn_context.send_activity("歡迎!")
+                await turn_context.send_activity("您好！我是TuckerAI,提供了ChatGPT的功能,只需輸入您的問題或要求,就會立即為您提供答案或解決方案!")
 
     async def on_message_activity(self, turn_context: TurnContext):
         openai.api_type = "azure"
         openai.api_base = "https://tucker-ai.openai.azure.com/"
         openai.api_version = "2023-05-15"
-        openai.api_key = "498e27ca0d0742b4b65f952e67714870"
+        openai.api_key = CONFIG.APP_AZURE_OPENAIAPIKEY
         system_message = {"role": "system", "content": "使用繁體中文，.\
                                         簡潔答覆，忽略禮貌用語，.\
                                         你是具有多領域專長的專家，若我提出的問題，你目前的角色無法解決目前遇到的問題，就自行切換能解決此問題的角色以獲得最佳效果，.\
@@ -82,21 +82,6 @@ class AttachmentsBot(ActivityHandler):
 
         await turn_context.send_activity(reply_msg)
 
-
-
-    async def _send_welcome_message(self, turn_context: TurnContext):
-        """
-        Greet the user and give them instructions on how to interact with the bot.
-        :param turn_context:
-        :return:
-        """
-        for member in turn_context.activity.members_added:
-            if member.id != turn_context.activity.recipient.id:
-                await turn_context.send_activity(
-                #    f"Welcome to AttachmentsBot {member.name}. This bot will introduce "
-                    f"您好！我是TuckerAI,提供了ChatGPT的功能,只需輸入您的問題或要求,就會立即為您提供答案或解決方案"
-                )
-                #await self._display_index(turn_context)
     #錯誤訊息
     async def _send_unrecognizable_message(self, turn_context: TurnContext):
         await turn_context.send_activity(f"TuckerAI罷工中．請重新輸入")
