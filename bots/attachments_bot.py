@@ -67,7 +67,7 @@ class AttachmentsBot(ActivityHandler):
 
         response = openai.ChatCompletion.create(
             #engine="kgis-gpt35",
-            ngine="tuckerai-gpt4",
+            engine="tuckerai-gpt4",
             messages=conversation,
             temperature=0.7,
             max_tokens=max_response_tokens,
