@@ -35,7 +35,7 @@ class AttachmentsBot(ActivityHandler):
     async def on_members_added_activity(self, members_added: [ChannelAccount], turn_context: TurnContext):
         for member in members_added:
             if member.id != turn_context.activity.recipient.id:
-                await turn_context.send_activity("您好！我是證券小幫手,提供了ChatGPT的功能,只需輸入您的問題或要求,就會立即為您提供答案或解決方案!")
+                await turn_context.send_activity("您好！我是TuckerAI,提供了ChatGPT的功能,只需輸入您的問題或要求,就會立即為您提供答案或解決方案!")
 
     async def on_message_activity(self, turn_context: TurnContext):
         openai.api_type = "azure"
@@ -66,7 +66,8 @@ class AttachmentsBot(ActivityHandler):
             num_tokens = sum(len(encoding.encode(msg["content"])) + 4 for msg in conversation) + 2
 
         response = openai.ChatCompletion.create(
-            engine="kgis-gpt35",
+            #engine="kgis-gpt35",
+            ngine="tuckerai-gpt4",
             messages=conversation,
             temperature=0.7,
             max_tokens=max_response_tokens,
@@ -83,7 +84,7 @@ class AttachmentsBot(ActivityHandler):
 
     #錯誤訊息
     async def _send_unrecognizable_message(self, turn_context: TurnContext):
-        await turn_context.send_activity(f"證券小幫手罷工中．請重新輸入")
+        await turn_context.send_activity(f"TuckerAI罷工中．請重新輸入")
         await self._display_index(turn_context)
 
 
