@@ -13,8 +13,8 @@ class DefaultConfig:
     APP_PASSWORD = os.environ.get("MicrosoftAppPassword", "Ofe8Q~1NfmXsBgaE7i~DF~dy-.a2d0qfHcvwta1u")
 
     #APP_OPENAIAPIKEY= os.environ.get("OpenAIAPIkey","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")
-    #APP_AZURE_OPENAIAPIBASE= os.environ.get("OPENAI_API_BASE","https://kgis-openai.openai.azure.com/")
-    #APP_AZURE_OPENAIAPIKEY= os.environ.get("OPENAI_API_KEY","4742123a7df64e46ba77bbe98e784ac1")
+    APP_AZURE_OPENAIAPIBASE= os.environ.get("OPENAI_API_BASE","https://kgis-openai.openai.azure.com/")
+    APP_AZURE_OPENAIAPIKEY= os.environ.get("OPENAI_API_KEY","4742123a7df64e46ba77bbe98e784ac1")
 
-    APP_AZURE_OPENAIAPIBASE= os.environ.get("OPENAI_API_BASE","https://tucker-ai.openai.azure.com/")
-    APP_AZURE_OPENAIAPIKEY= os.environ.get("OPENAI_API_KEY","498e27ca0d0742b4b65f952e67714870")
+    #APP_AZURE_OPENAIAPIBASE= os.environ.get("OPENAI_API_BASE","https://tucker-ai.openai.azure.com/")
+    #APP_AZURE_OPENAIAPIKEY= os.environ.get("OPENAI_API_KEY","498e27ca0d0742b4b65f952e67714870")
