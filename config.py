@@ -18,3 +18,5 @@ class DefaultConfig:
 
     #APP_AZURE_OPENAIAPIBASE= os.environ.get("OPENAI_API_BASE","https://tucker-ai.openai.azure.com/")
     #APP_AZURE_OPENAIAPIKEY= os.environ.get("OPENAI_API_KEY","498e27ca0d0742b4b65f952e67714870")
+
+#https://tucker-ai-web-app-1.azurewebsites.net/api/messages
